@@ -22,6 +22,7 @@ module Jeff
       erb :index
     end
 
+
     Dir["views/posts/**"].map{|x| File.basename(x,".erb")}.each do |post|
       puts post
       get "/posts/#{post.to_s}" do
