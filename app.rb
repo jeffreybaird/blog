@@ -22,6 +22,10 @@ module Jeff
       erb :index
     end
 
+    get '/about/me' do
+      erb :"about/me"
+    end
+
 
     Dir["views/posts/**"].map{|x| File.basename(x,".erb")}.each do |post|
       puts post
