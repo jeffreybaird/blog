@@ -27,9 +27,10 @@ module Jeff
     end
 
 
-    Dir["views/posts/**"].map{|x| File.basename(x,".erb")}.each do |post|
-      puts post
+    Dir["views/posts/**"].map do |file_name|
+      post = File.basename(file_name,".erb")
       get "/posts/#{post.to_s}" do
+        @post = Post.new(file_name)
         erb :"posts/#{post}"
       end
     end

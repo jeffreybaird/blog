@@ -1,7 +1,18 @@
 <%
 # title:: First Post%
-# description:: this is my first post%
+# description:: On deactivating facebook, getting back to blogging and reducing my usage of all social media.%
 # date:: 2015,03,16%
 # author:: Jeffrey Baird%
 %>
 <h1>First Post</h1>
+
+<p><%= @post.author %>: <%= @post.date %></p>
+<p>I think this may be my eighth "first post." I can't promise this attempt at blogging will be any more successful than the others.</p>
+
+<p>I've spent some time speaking with my therapist on my usage of social media. I won't bore you with the details but I've decided to go into write-only mode on most of my social media accounts. I do seem to need some form of public expression, regardless of whether someone ever reads it. The fact that it is published with my name does a good job of keeping me honest.</p>
+
+<p>I'm not going to keep to any specific topics. This will generally contain all thoughts that don't generally meet the requirements for <a href="http://learnwithjeff.com">Learn With Jeff</a>. I'll eventually implement an RSS feed but I can't say when.</p>
+
+<p>If you don't know who I am go to my <%= link_to("/about/me", "about me") %> page. Cheers.</p>
+
+<%= link_to("/", "Home") %>

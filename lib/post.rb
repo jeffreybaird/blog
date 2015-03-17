@@ -26,7 +26,7 @@ class Post
   end
 
   def date
-    Time.new(date_array[0],date_array[1],date_array[2])
+    Time.new(date_array[0],date_array[1],date_array[2]).strftime("%Y-%m-%d")
   end
 
   def author
