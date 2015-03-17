@@ -19,17 +19,17 @@ module Jeff
 
     #routes
     get '/' do
-      erb :index
+      erb :"about/me"
     end
 
-    get '/about/me' do
-      erb :"about/me"
+    get '/blog' do
+      erb :blog
     end
 
 
     Dir["views/posts/**"].map do |file_name|
       post = File.basename(file_name,".erb")
-      get "/posts/#{post.to_s}" do
+      get "/blog/posts/#{post.to_s}" do
         @post = Post.new(file_name)
         erb :"posts/#{post}"
       end
