@@ -42,7 +42,7 @@ module Jeff
       end
 
       def posts
-        Dir["views/posts/**"].map{|x| Post.new(x)}.sort_by{|post| post.date }.reverse
+        Dir["views/posts/**"].map{|file_name| Post.new(file_name)}.sort_by{|post| post.date }.reverse
       end
 
       def prettify_post(post)
