@@ -1,23 +1,9 @@
-#ratpack
+Setting up the instance:
 
-a simple boilerplate for creating production-ready sinatra apps that use activerecord and sqlite
+https://www.digitalocean.com/community/tutorials/how-to-install-ruby-2-1-0-and-sinatra-on-ubuntu-13-with-rvm
 
-twitterbootstrap using html and css are included.
+Setting up the webserver:
+https://www.digitalocean.com/community/tutorials/how-to-deploy-sinatra-based-ruby-web-applications-on-ubuntu-13
 
-if ya want haml and sass, be on the look for classy.
-
-## Up and running
-1. `bundle install`
-2. `shotgun`
-3. visit `localhost:9393`
-
-## Gemfile
-- [sinatra](http://www.sinatrarb.com/): web framework
-- [sqlite3](https://github.com/luislavena/sqlite3-ruby): Database
-- [activerecord](http://guides.rubyonrails.org/active_record_querying.html): ORM
-- [sinatra-activerecord](https://github.com/bmizerany/sinatra-activerecord)
-- [rake](http://rake.rubyforge.org/)
-
-### Development
-   * [shotgun](https://github.com/rtomayko/shotgun)
-   * [tux](http://tagaholic.me/2011/04/10/tux-a-sinatra-console.html)
+Deploying:
+https://www.digitalocean.com/community/tutorials/how-to-set-up-automatic-deployment-with-git-with-a-vps
