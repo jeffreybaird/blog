@@ -38,7 +38,8 @@ class Post
   end
 
   def digest_meta_data
-    erb_render.src.scan(/(?<=\#)(.*?)(?=\%)/).map{|x| x.pop.strip.split("::")}.to_h
+    meta_data_array = erb_render.src.scan(/(?<=\#)(.*?)(?=\%)/).map{|x| x.pop.strip.split("::")}.reject{|y| y.length != 2}
+    meta_data_array.to_h
   end
 
 end
