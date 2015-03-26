@@ -8,7 +8,7 @@ template_string =<<EOF
 <%
 # title:: #{title}%
 # description::%
-# date::#{Time.now.strftime("%Y-%m-%d")}%
+# date::#{Time.now.strftime("%Y,%m,%d")}%
 # author:: Jeffrey Baird%
 %>
 
