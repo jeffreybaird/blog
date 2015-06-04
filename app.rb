@@ -26,6 +26,10 @@ module Jeff
       erb :blog
     end
 
+    get '/public_key' do
+      erb :public_key
+    end
+
 
     Dir["views/posts/**"].map do |file_name|
       post = File.basename(file_name,".erb")
