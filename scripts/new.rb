@@ -12,8 +12,7 @@ template_string =<<EOF
 # author:: Jeffrey Baird%
 %>
 
-<ul style="list-style:none;"><li><%= link_to("/", "Home") %></li><li><%= link_to("/blog", "Blog") %></li></ul>
+<%= footer %>
 EOF
 
 File.open("views/posts/#{template.strip}", "w+") { |file| file.write(template_string)  }
-

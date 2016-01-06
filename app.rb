@@ -30,6 +30,10 @@ module Jeff
       erb :public_key
     end
 
+    get '/books' do
+      erb :'books/index'
+    end
+
 
     Dir["views/posts/**"].map do |file_name|
       post = File.basename(file_name,".erb")
@@ -49,6 +53,34 @@ module Jeff
         attributes = ""
         opts.each { |key,value| attributes << key.to_s << "=\"" << value << "\" "}
         "<a href=\"#{url}\" #{attributes}>#{text}</a>"
+      end
+
+      def footer
+        f = "<ul style'list-style:none;'>"
+        footer_links.each do |l|
+          f << "<li>#{l}</li>"
+        end
+        f + "</ul>"
+      end
+
+      def footer_links
+        [home,blog,public_key,books]
+      end
+
+      def home
+        link_to('/', 'Home')
+      end
+
+      def blog
+        link_to('/blog', 'Blog')
+      end
+
+      def public_key
+        link_to('/public_key', 'My Public Key')
+      end
+
+      def books
+        link_to('/books', 'Books')
       end
 
       def posts
