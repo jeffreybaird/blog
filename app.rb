@@ -43,6 +43,13 @@ module Jeff
       end
     end
 
+    Dir["views/books/**"].map do |file_name|
+      book = File.basename(file_name,".erb")
+      get "/books/#{book.to_s}" do
+        erb :"books/#{book}"
+      end
+    end
+
     #helpers
     helpers do
       def partial(file_name)
