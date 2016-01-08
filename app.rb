@@ -34,6 +34,10 @@ module Jeff
       erb :'books/index'
     end
 
+    get '/books/rating' do
+      erb :'books/rating'
+    end
+
 
     Dir["views/posts/**"].map do |file_name|
       post = File.basename(file_name,".erb")
