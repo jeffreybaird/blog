@@ -31,11 +31,11 @@ module Jeff
     end
 
     get '/books' do
-      erb :'books/index'
+      erb :'book'
     end
 
     get '/books/rating' do
-      erb :'books/rating'
+      erb :'rating'
     end
 
 
@@ -50,6 +50,7 @@ module Jeff
     Dir["views/books/**"].map do |file_name|
       book = File.basename(file_name,".erb")
       get "/books/#{book.to_s}" do
+        @book = Book.new(file_name)
         erb :"books/#{book}"
       end
     end
@@ -75,7 +76,7 @@ module Jeff
       end
 
       def footer_links
-        [home,blog,public_key,books]
+        [home,blog,public_key,books_link]
       end
 
       def home
@@ -90,12 +91,16 @@ module Jeff
         link_to('/public_key', 'My Public Key')
       end
 
-      def books
+      def books_link
         link_to('/books', 'Books')
       end
 
       def posts
         Dir["views/posts/**"].map{|file_name| Post.new(file_name)}.sort_by{|post| post.date }.reverse
+      end
+
+      def books
+        Dir["views/books/**"].map{|file_name| Book.new(file_name)}.sort_by{|post| post.date }.reverse
       end
 
       def prettify_post(post)

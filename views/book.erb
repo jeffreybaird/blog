@@ -4,9 +4,12 @@
 
 <ol>
 
+  <% books.each do |book| %>
+    <li><h4><%= link_to("books/#{book.internal_link}", book.title) %></h2></li>
+    <h5>Date Completed: <%= book.date %></h3>
+    <h5>By: <%= book.author %></h3>
+    <p><%= book.description %></p>
+  <% end %>
 
-<li> <%= link_to("/books/how_about_never", "How About Never—Is Never Good for You?: My Life in Cartoons") %></li>
-<li> <%= link_to("/books/attack_of_the_clones", "Attack of the Clones") %></li>
-<li><%= link_to("/books/the_gifts_of_imperfection", "The Gifts of Imperfection: Let Go of Who You Think You&#39;re Supposed to Be and Embrace Who You Are") %></li>
 </ol>
 <%= footer %>
