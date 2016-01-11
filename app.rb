@@ -68,11 +68,11 @@ module Jeff
       end
 
       def footer
-        f = "<ul style'list-style:none;'>"
+        f = "<div class='pure-menu pure-menu-horizontal'><ul class='pure-menu-list'>"
         footer_links.each do |l|
-          f << "<li>#{l}</li>"
+          f << "<li class='pure-menu-item'>#{l}</li>"
         end
-        f + "</ul>"
+        f + "</ul></div>"
       end
 
       def footer_links
@@ -80,19 +80,19 @@ module Jeff
       end
 
       def home
-        link_to('/', 'Home')
+        link_to('/', 'Home',{class: 'pure-menu-link'})
       end
 
       def blog
-        link_to('/blog', 'Blog')
+        link_to('/blog', 'Blog',{class: 'pure-menu-link'})
       end
 
       def public_key
-        link_to('/public_key', 'My Public Key')
+        link_to('/public_key', 'My Public Key',{class: 'pure-menu-link'})
       end
 
       def books_link
-        link_to('/books', 'Books')
+        link_to('/books', 'Books',{class: 'pure-menu-link'})
       end
 
       def posts
