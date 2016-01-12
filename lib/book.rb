@@ -21,6 +21,10 @@ class Book
     meta_data["description"]
   end
 
+  def rating
+    meta_data["rating"].to_f
+  end
+
   def date_array
     meta_data["date"].split(',')
   end

@@ -100,7 +100,7 @@ module Jeff
       end
 
       def books
-        Dir["views/books/**"].map{|file_name| Book.new(file_name)}.sort_by{|post| post.date }.reverse
+        Dir["views/books/**"].map{|file_name| Book.new(file_name)}.sort_by{|book| book.rating }.reverse
       end
 
       def prettify_post(post)
