@@ -119,10 +119,12 @@ module Jeff
           maker.channel.updated = posts[0].date
           maker.channel.about = "http://www.jeffreyleebaird.com/blog.rss"
           maker.channel.title = "Jeffrey Baird's Blog"
+          maker.channel.icon = "http://www.jeffreyleebaird.com/img/favicon.png"
 
           posts.each do |post|
             maker.items.new_item do |item|
               item.link = "http://www.jeffreyleebaird.com/blog/posts/#{post.internal_link}"
+              item.description = post.description
               item.title = post.title
               item.updated = post.date
             end
