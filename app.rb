@@ -28,8 +28,7 @@ module Jeff
     end
 
     get '/blog.rss' do
-      @feed = rss
-      erb :rss
+      rss.to_xml
     end
 
     get '/public_key' do
