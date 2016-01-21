@@ -1,4 +1,5 @@
 require 'bundler'
+require 'rss'
 Bundler.require
 
 Dir.glob('./lib/*.rb') do |model|
@@ -24,6 +25,11 @@ module Jeff
 
     get '/blog' do
       erb :blog
+    end
+
+    get '/blog.rss' do
+      @feed = rss
+      erb :rss
     end
 
     get '/public_key' do
@@ -96,15 +102,32 @@ module Jeff
       end
 
       def posts
-        Dir["views/posts/**"].map{|file_name| Post.new(file_name)}.sort_by{|post| post.date }.reverse
+        @posts ||= Dir["views/posts/**"].map{|file_name| Post.new(file_name)}.sort_by{|post| post.date }.reverse
       end
 
       def books
-        Dir["views/books/**"].map{|file_name| Book.new(file_name)}.sort_by{|book| book.rating }.reverse
+        @books ||= Dir["views/books/**"].map{|file_name| Book.new(file_name)}.sort_by{|book| book.rating }.reverse
       end
 
       def prettify_post(post)
         post.gsub("_", " ").upcase
+      end
+
+      def rss
+        @rss = RSS::Maker.make("atom") do |maker|
+          maker.channel.author = "Jeffrey Baird"
+          maker.channel.updated = posts[0].date
+          maker.channel.about = "http://www.jeffreyleebaird.com/blog.rss"
+          maker.channel.title = "Jeffrey Baird's Blog"
+
+          posts.each do |post|
+            maker.items.new_item do |item|
+              item.link = "http://www.jeffreyleebaird.com/blog/posts/#{post.internal_link}"
+              item.title = post.title
+              item.updated = post.date
+            end
+          end
+        end
       end
 
     end
