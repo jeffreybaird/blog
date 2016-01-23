@@ -2,6 +2,9 @@
 
 <p>I got this idea from <%= link_to("https://sivers.org/book", "Derek Sivers") %>. I've tried to keep track of my reading in the past but never publically. So, for 2016 I commit to put every book I read up here with a <%= link_to("/books/rating","rating") %> and a short review, summary or some notes. Books are sorted by rating.</p>
 
+<p>
+  So far, in 2016 I have read <%= books.inject(0){|sum, b| sum + b.pages} %> pages.
+</p>
 <ol>
 
   <% books.each do |book| %>

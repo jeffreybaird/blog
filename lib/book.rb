@@ -17,6 +17,10 @@ class Book
     meta_data["title"]
   end
 
+  def pages
+    meta_data["pages"].to_i
+  end
+
   def description
     meta_data["description"]
   end
