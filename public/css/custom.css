@@ -6,5 +6,6 @@
 @media (max-width: 600px) {
   .font-change {
     font-size: 24px;
+    letter-spacing: .025em;
   }
 }
