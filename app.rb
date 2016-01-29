@@ -28,6 +28,7 @@ module Jeff
     end
 
     get '/blog.rss' do
+      content_type 'text/xml'
       rss.to_xml
     end
 
