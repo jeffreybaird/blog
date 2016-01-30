@@ -121,7 +121,7 @@ module Jeff
           maker.channel.title = "Jeffrey Baird's Blog"
           maker.channel.icon = "http://www.jeffreyleebaird.com/img/favicon.png"
 
-          posts.each do |post|
+          (posts + books).sort_by{|x| x.date}.reverse.each do |post|
             maker.items.new_item do |item|
               item.link = "http://www.jeffreyleebaird.com/blog/posts/#{post.internal_link}"
               item.description = post.description
