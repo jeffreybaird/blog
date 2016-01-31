@@ -13,6 +13,10 @@ class Book
     "books"
   end
 
+  def image
+    meta_data["image"]
+  end
+
 
   def internal_link
     File.basename(file,".erb")
