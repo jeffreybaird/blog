@@ -9,6 +9,11 @@ class Book
     @erb_render = ERB.new(File.read(file))
   end
 
+  def path
+    "books"
+  end
+
+
   def internal_link
     File.basename(file,".erb")
   end

@@ -121,12 +121,12 @@ module Jeff
           maker.channel.title = "Jeffrey Baird's Blog"
           maker.channel.icon = "http://www.jeffreyleebaird.com/img/favicon.png"
 
-          (posts + books).sort_by{|x| x.date}.reverse.each do |post|
+          (posts + books).sort_by{|x| x.date}.reverse.each do |entry|
             maker.items.new_item do |item|
-              item.link = "http://www.jeffreyleebaird.com/blog/posts/#{post.internal_link}"
-              item.description = post.description
-              item.title = post.title
-              item.updated = post.date
+              item.link = "http://www.jeffreyleebaird.com/#{entry.path}/#{entry.internal_link}"
+              item.description = entry.description
+              item.title = entry.title
+              item.updated = entry.date
             end
           end
         end
