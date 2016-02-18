@@ -35,7 +35,12 @@ class Book
   end
 
   def rating
-    meta_data["rating"].to_f
+    r = meta_data["rating"].to_f
+    if r.to_i == r
+      r.to_i
+    else
+      r
+    end
   end
 
   def date_array
