@@ -32,7 +32,7 @@ template_string =<<EOF
 
 <h3>Rating: <%= @book.rating %>/5 stars</h3>
 
-<h3>Date completed: <%=  #{Time.now.strftime("%B %d, %Y") }%></h3>
+<h3>Date completed: #{Time.now.strftime("%B %d, %Y") }</h3>
 
 <%= footer %>
 EOF
