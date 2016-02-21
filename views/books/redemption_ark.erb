@@ -11,16 +11,16 @@
 
 <div class="book-stats">
 
-<h1><%= link_to("http://amzn.to/1U9l8R7",@book.title) %></h1>
+<h1><%= link_to("http://amzn.to/1U9l8R7",book.title) %></h1>
 
-<h4>by <%= @book.author %></h4>
+<h4>by <%= book.author %></h4>
 
-<h3>Rating: <%= @book.rating %>/5 stars</h3>
+<h3>Rating: <%= book.rating %>/5 stars</h3>
 
 <h3>Date completed: February 8, 2016</h3>
 </div>
 
-<img class="book-cover" style="height:auto; width:auto; max-width:300px; max-height:300px;" src="<%= @book.image %>" alt="" />
+<img class="book-cover" style="height:auto; width:auto; max-width:300px; max-height:300px;" src="<%= book.image %>" alt="" />
 </div>
 
 <p>This is the first book of the year that I have rated as a 5. I don&#39;t do so lightly. This is the second volume in the Revelation Space series. The series focuses on humans a few centuries after they begin &nbsp;leaving Earth’s solar system. They have broken into factions, generally based around how their group has adapted to life beyond Earth.</p>

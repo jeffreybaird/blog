@@ -2,11 +2,19 @@ require_relative 'erb'
 
 class Post
 
-  attr_reader :erb_render, :file
+  attr_reader :erb_render, :file, :body
+  include ApplicationHelpers
 
   def initialize(file)
     @file = file
+    b = get_binding
+    b.local_variable_set(:post, self)
     @erb_render = ERB.new(File.read(file))
+    @body = erb_render.result(b)
+  end
+
+  def post_body
+
   end
 
   def path

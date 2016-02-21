@@ -26,11 +26,11 @@ template_string =<<EOF
 # author::#{author}%
 %>
 
-<h1><%= link_to("http://example.com",@book.title) %></h1>
+<h1><%= link_to("http://example.com",book.title) %></h1>
 
-<h4>by <%= @book.author %></h4>
+<h4>by <%= book.author %></h4>
 
-<h3>Rating: <%= @book.rating %>/5 stars</h3>
+<h3>Rating: <%= book.rating %>/5 stars</h3>
 
 <h3>Date completed: #{Time.now.strftime("%B %d, %Y") }</h3>
 

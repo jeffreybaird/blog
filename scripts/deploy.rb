@@ -1,1 +1,1 @@
-value = %x( git push live master )
+%x( git push live master )

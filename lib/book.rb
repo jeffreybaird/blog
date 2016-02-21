@@ -2,11 +2,15 @@ require_relative 'erb'
 
 class Book
 
-  attr_reader :erb_render, :file
+  attr_reader :erb_render, :file, :body
+  include ::ApplicationHelpers
 
   def initialize(file)
     @file = file
+    b = get_binding
+    b.local_variable_set(:book, self)
     @erb_render = ERB.new(File.read(file))
+    @body = erb_render.result(b)
   end
 
   def path
