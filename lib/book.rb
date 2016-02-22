@@ -1,4 +1,5 @@
 require_relative 'erb'
+require_relative 'application_helpers'
 
 class Book
 
