@@ -3,7 +3,7 @@ require_relative 'erb'
 class Post
 
   attr_reader :erb_render, :file, :body
-  include ApplicationHelpers
+  include ::ApplicationHelpers
 
   def initialize(file)
     @file = file
