@@ -6,6 +6,7 @@ gem "sqlite3"
 gem "activerecord"
 gem "sinatra-activerecord"
 gem "rake"
+gem "unicorn"
 
 group :development do
   gem "shotgun"

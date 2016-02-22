@@ -19,12 +19,14 @@ GEM
     builder (3.2.2)
     i18n (0.7.0)
     json (1.8.2)
+    kgio (2.10.0)
     minitest (5.5.1)
     rack (1.6.0)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    raindrops (0.15.0)
     rake (10.4.2)
     ripl (0.7.1)
       bond (~> 0.5.1)
@@ -53,6 +55,10 @@ GEM
       sinatra (>= 1.2.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    unicorn (5.0.1)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
 
 PLATFORMS
   ruby
@@ -65,3 +71,7 @@ DEPENDENCIES
   sinatra-activerecord
   sqlite3
   tux
+  unicorn
+
+BUNDLED WITH
+   1.11.2
