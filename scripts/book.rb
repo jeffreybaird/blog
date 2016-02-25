@@ -14,7 +14,11 @@ puts "What do you rate it out of 5?"
 
 rating = gets.chomp
 
-template = title.gsub(" ", "_").downcase.strip + ".erb"
+path = title.gsub(" ", "_").downcase.strip
+
+template = path + ".erb"
+
+image = path + ".jpg"
 
 template_string =<<EOF
 <%
@@ -24,6 +28,7 @@ template_string =<<EOF
 # date::#{Time.now.strftime("%Y,%m,%d")}%
 # pages::#{pages}%
 # author::#{author}%
+# image:: #{image}
 %>
 
 <h1><%= link_to("http://example.com",book.title) %></h1>
@@ -33,6 +38,9 @@ template_string =<<EOF
 <h3>Rating: <%= book.rating %>/5 stars</h3>
 
 <h3>Date completed: #{Time.now.strftime("%B %d, %Y") }</h3>
+
+<img class="book-cover" style="height:auto; width:auto; max-width:300px; max-height:300px;" src="<%= book.image %>" alt="" />
+
 
 <%= footer %>
 EOF
