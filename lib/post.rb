@@ -18,6 +18,10 @@ class Post
 
   end
 
+  def image
+    meta_data["image"]
+  end
+
   def path
     "blog/posts"
   end
