@@ -14,6 +14,10 @@ puts "What do you rate it out of 5?"
 
 rating = gets.chomp
 
+puts "What is the Amazon Link?"
+
+link = gets.chomp
+
 path = title.gsub(" ", "_").downcase.strip
 
 template = path + ".erb"
@@ -28,10 +32,10 @@ template_string =<<EOF
 # date::#{Time.now.strftime("%Y,%m,%d")}%
 # pages::#{pages}%
 # author::#{author}%
-# image:: #{image}
+# image:: /img/#{image}%
 %>
 
-<h1><%= link_to("http://example.com",book.title) %></h1>
+<h1><%= link_to(#{link},book.title) %></h1>
 
 <h4>by <%= book.author %></h4>
 

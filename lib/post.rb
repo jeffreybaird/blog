@@ -14,10 +14,6 @@ class Post
     @body = erb_render.result(b)
   end
 
-  def post_body
-
-  end
-
   def image
     meta_data["image"]
   end
