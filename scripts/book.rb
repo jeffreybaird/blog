@@ -35,7 +35,7 @@ template_string =<<EOF
 # image:: /img/#{image}%
 %>
 
-<h1><%= link_to(#{link},book.title) %></h1>
+<h1><%= link_to("#{link}",book.title) %></h1>
 
 <h4>by <%= book.author %></h4>
 
