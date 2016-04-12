@@ -46,6 +46,10 @@ module Jeff
       erb :'rating'
     end
 
+    get '/sprite' do
+      erb :'about/sprite'
+    end
+
 
     Dir["views/posts/**"].map do |file_name|
       post_name = File.basename(file_name,".erb")
