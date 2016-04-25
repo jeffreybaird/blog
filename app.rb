@@ -54,6 +54,10 @@ module Jeff
       erb :'games/pong'
     end
 
+    get '/breakout' do
+      erb :'games/breakout'
+    end
+
 
     Dir["views/posts/**"].map do |file_name|
       post_name = File.basename(file_name,".erb")
