@@ -7003,7 +7003,6 @@ Elm.Game.make = function (_elm) {
    var numberOfHits = function (bricks) {    return $Basics.toFloat($List.length(A2($List.filter,function (_) {    return _.hit;},bricks)));};
    var xvel = F2(function (vx,bricks) {
       var numberHit = $Basics.toFloat($List.length(A2($List.filter,function (_) {    return _.hit;},bricks)));
-      var n = A2($Debug.watch,"Number Hit",numberHit);
       return _U.cmp(vx,0) < 0 ? vx - numberHit : _U.cmp(vx,0) > 0 ? vx + numberHit : vx;
    });
    var yvel = F2(function (vy,bricks) {
@@ -7036,9 +7035,6 @@ Elm.Game.make = function (_elm) {
    });
    var stepBrick = F2(function (ball,brick) {    return _U.update(brick,{hit: A2(remove,ball,brick),x: moveBrick(brick)});});
    var stepBricks = F2(function (bricks,ball) {
-      var a = A2($Debug.watch,"Hit",A2($List.map,remove(ball),bricks));
-      var b = A2($Debug.watch,"Ball Within Bricks",A2($List.map,$Ball.withinBrick(ball),bricks));
-      var brs = A2($Debug.watch,"Bricks Hit",A2($List.map,function (_) {    return _.hit;},bricks));
       var xy = function (brick) {    return _U.list([brick.x,brick.y]);};
       return A2($List.map,stepBrick(ball),bricks);
    });
@@ -7063,9 +7059,6 @@ Elm.Game.make = function (_elm) {
       var hit = _p6.hit;
       var bricks$ = A2(stepBricks,bricks,ball);
       var hit$ = A2($List.any,$Ball.withinBrick(ball),bricks);
-      var g = A2($Debug.watch,"Hit",hit$);
-      var a = A2($Debug.watch,"vx",ball.vx);
-      var b = A2($Debug.watch,"vy",ball.vy);
       var _p7 = input;
       var space = _p7.space;
       var paddle = _p7.paddle;
@@ -7073,9 +7066,7 @@ Elm.Game.make = function (_elm) {
       var player$ = A4(stepPlayer,delta,paddle,player,bricks);
       var ball$ = _U.eq(state,Pause) || _U.eq(state,Reset) ? ball : A5(stepBall,delta,ball,player,bricks,hit);
       var state$ = outOfPlayArea(ball) ? Reset : _U.eq(state,Reset) && space ? Pause : space && _U.eq(state,Pause) ? Play : state;
-      var d = A2($Debug.watch,"State",state$);
       var resetGame = space && _U.eq(state,Reset) ? true : false;
-      var c = A2($Debug.watch,"Space",space);
       return resetGame ? defaultGame : _U.update(game,{player: player$,ball: ball$,bricks: bricks$,state: state$,hit: hit$});
    });
    var gameState = A3($Signal.foldp,stepGame,defaultGame,input);
