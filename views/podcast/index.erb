@@ -1,0 +1,9 @@
+<% episodes.each do |episode|%>
+<h1><%= link_to("podcast/#{episode.link}", episode.title)  %></h1>
+<h2>Published on: <%= episode.date.strftime("%D") %></h2>
+<audio controls>
+  <source src=<%= "/episodes/#{episode.link}.mp3" %> type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<% end %>

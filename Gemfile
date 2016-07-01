@@ -7,6 +7,7 @@ gem "activerecord"
 gem "sinatra-activerecord"
 gem "rake"
 gem "unicorn"
+gem "mp3info"
 
 group :development do
   gem "shotgun"

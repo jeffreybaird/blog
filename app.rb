@@ -1,5 +1,6 @@
 require 'bundler'
 require 'rss'
+require 'date'
 Bundler.require
 
 Dir.glob('./lib/*.rb') do |model|
@@ -32,6 +33,11 @@ module Jeff
     get '/blog.rss' do
       content_type 'text/xml'
       rss.to_xml
+    end
+
+    get '/episodes.rss' do
+      content_type 'text/xml'
+      podcast.to_xml
     end
 
     get '/public_key' do
@@ -73,6 +79,22 @@ module Jeff
         book = Book.new(file_name)
         erb :"books/#{book_name}", :locals => { :book => book }
       end
+    end
+
+    Dir["public/episodes/**"].map do |file_name|
+      Mp3Info.open(file_name) do |mp3|
+        link = "#{mp3.tag.album.downcase.gsub(" ", "_")}_#{mp3.tag.title.downcase.gsub(" ", "_")}"
+        date = mp3.tag2.TXXX.match(/Pub(\S*)/)[1]
+        title = "#{mp3.tag.album}: #{mp3.tag.title}"
+        episode = Episode.new(link, title,date)
+        get "/podcast/#{link}" do
+          erb :"/podcast/show", :locals => {:episode => episode}
+        end
+      end
+    end
+
+    get "/podcast" do
+      erb :"/podcast/index", :locals => {:episodes => episodes}
     end
 
 

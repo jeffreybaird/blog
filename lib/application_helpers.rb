@@ -50,6 +50,17 @@ module ApplicationHelpers
     @books ||= Dir["views/books/**"].map{|file_name| Book.new(file_name)}.sort_by{|book| book.rating }.reverse
   end
 
+  def episodes
+    @episodes ||=  Dir["public/episodes/**"].map do |file_name|
+      Mp3Info.open(file_name) do |mp3|
+        link = "#{mp3.tag.album.downcase.gsub(" ", "_")}_#{mp3.tag.title.downcase.gsub(" ", "_")}"
+        date = mp3.tag2.TXXX.match(/Pub(\S*)/)[1]
+        title = "#{mp3.tag.album}: #{mp3.tag.title}"
+        Episode.new(link, title,date)
+      end
+    end
+  end
+
   def prettify_post(post)
     post.gsub("_", " ").upcase
   end
@@ -69,6 +80,25 @@ module ApplicationHelpers
           item.summary = entry.body
           item.title = entry.title
           item.updated = entry.date
+        end
+      end
+    end
+  end
+
+
+  def podcast
+    @podcast = RSS::Maker.make("atom") do |maker|
+      maker.channel.author = "Jeffrey Baird"
+      maker.channel.updated = episodes[0].date.strftime("%Y-%m-%d")
+      maker.channel.about = "http://www.jeffreyleebaird.com/episodes.rss"
+      maker.channel.title = "Public Domain"
+      maker.channel.icon = "http://www.jeffreyleebaird.com/img/favicon.png"
+      puts "made it this far"
+      episodes.sort_by{|x| x.date}.reverse.each do |episode|
+        maker.items.new_item do |item|
+          item.link = "http://www.jeffreyleebaird.com/podcast/#{episode.link}.mp3"
+          item.title = episode.title
+          item.updated = episode.date.strftime("%Y-%m-%d")
         end
       end
     end
