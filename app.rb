@@ -1,6 +1,7 @@
 require 'bundler'
 require 'rss'
 require 'date'
+require 'mp3info'
 Bundler.require
 
 Dir.glob('./lib/*.rb') do |model|
