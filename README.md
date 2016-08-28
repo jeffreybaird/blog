@@ -11,6 +11,8 @@ https://www.digitalocean.com/community/tutorials/how-to-set-up-automatic-deploym
 # If it goes down:
 
 ssh in:
-in the app directory:
-unicorn -c unicorn.rb -D
-service nginx restart
+```
+$cd /var/www/jeff
+$unicorn -c unicorn.rb -D
+$service nginx restart
+```
