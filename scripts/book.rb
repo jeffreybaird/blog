@@ -1,3 +1,4 @@
+require 'date'
 puts "what is the book title?"
 
 title = gets.chomp
@@ -14,6 +15,15 @@ puts "What do you rate it out of 5?"
 
 rating = gets.chomp
 
+puts "What date did you finish it (Y-M-D)"
+
+begin
+date = DateTime.parse(gets.chomp)
+rescue
+puts "That didn't work. Please try again. Make sure the format is (Y-M-D)"
+date = DateTime.parse(gets.chomp)
+end
+
 puts "What is the Amazon Link?"
 
 link = gets.chomp
@@ -29,7 +39,7 @@ template_string =<<EOF
 # title::#{title} %
 # rating::#{rating}%
 # description::#{rating}/5 stars:%
-# date::#{Time.now.strftime("%Y,%m,%d")}%
+# date::#{date.strftime("%Y,%m,%d")}%
 # pages::#{pages}%
 # author::#{author}%
 # image:: /img/#{image}%

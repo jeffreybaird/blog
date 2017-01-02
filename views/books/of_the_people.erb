@@ -1,0 +1,22 @@
+<%
+# title::Of the People, By the People: The Case for a Participatory Economy %
+# rating::3%
+# description::3/5 stars:%
+# date::2017,01,02%
+# pages::160%
+# author::Robin Hahnel%
+# image:: /img/of_the_people.jpg%
+%>
+
+<h1><%= link_to("https://www.akpress.org/of-the-people-by-the-people.html",book.title) %></h1>
+
+<h4>by <%= book.author %></h4>
+
+<h3>Rating: <%= book.rating %>/5 stars</h3>
+
+<h3>Date completed: <%= book.date %></h3>
+
+<img class="book-cover" style="height:auto; width:auto; max-width:300px; max-height:300px;" src="<%= book.image %>" alt="" />
+
+
+<%= footer %>

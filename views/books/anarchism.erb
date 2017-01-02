@@ -1,0 +1,22 @@
+<%
+# title::Anarchism %
+# rating::3.5%
+# description::3.5/5 stars:%
+# date::2016,12,12%
+# pages::132%
+# author::Emma Goldman%
+# image:: /img/anarchism.jpg%
+%>
+
+<h1><%= link_to("http://amzn.to/2iIzUjs",book.title) %></h1>
+
+<h4>by <%= book.author %></h4>
+
+<h3>Rating: <%= book.rating %>/5 stars</h3>
+
+<h3>Date completed: <%= book.date %></h3>
+
+<img class="book-cover" style="height:auto; width:auto; max-width:300px; max-height:300px;" src="<%= book.image %>" alt="" />
+
+
+<%= footer %>

@@ -1,0 +1,22 @@
+<%
+# title::The Dispossessed %
+# rating::5%
+# description::5/5 stars:%
+# date::2016,11,20%
+# pages::400%
+# author::Ursula Kroeber Le Guin%
+# image:: /img/the_dispossessed.jpg%
+%>
+
+<h1><%= link_to("http://amzn.to/2hKKutL",book.title) %></h1>
+
+<h4>by <%= book.author %></h4>
+
+<h3>Rating: <%= book.rating %>/5 stars</h3>
+
+<h3>Date completed: <%= book.date %></h3>
+
+<img class="book-cover" style="height:auto; width:auto; max-width:300px; max-height:300px;" src="<%= book.image %>" alt="" />
+
+
+<%= footer %>

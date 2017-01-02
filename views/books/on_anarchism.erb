@@ -1,0 +1,22 @@
+<%
+# title::On Anarchism %
+# rating::4%
+# description::4/5 stars:%
+# date::2016,11,28%
+# pages::128%
+# author::Noam Chomsky%
+# image:: /img/on_anarchism.jpg%
+%>
+
+<h1><%= link_to("http://amzn.to/2hKLhL4",book.title) %></h1>
+
+<h4>by <%= book.author %></h4>
+
+<h3>Rating: <%= book.rating %>/5 stars</h3>
+
+<h3>Date completed: <%= book.date %></h3>
+
+<img class="book-cover" style="height:auto; width:auto; max-width:300px; max-height:300px;" src="<%= book.image %>" alt="" />
+
+
+<%= footer %>
