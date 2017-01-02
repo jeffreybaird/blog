@@ -41,7 +41,7 @@ template_string =<<EOF
 
 <h3>Rating: <%= book.rating %>/5 stars</h3>
 
-<h3>Date completed: #{Time.now.strftime("%B %d, %Y") }</h3>
+<h3>Date completed: <%= book.date %></h3>
 
 <img class="book-cover" style="height:auto; width:auto; max-width:300px; max-height:300px;" src="<%= book.image %>" alt="" />
 
